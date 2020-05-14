@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String c = "";
+		do {
+			System.out.println("\tIntroduzca una opción");
+			System.out.println();
+			System.out.println("1) Serie Numeros Naturales");
+			System.out.println("2) Serie de Fibonacci");
+			System.out.println("3) Serie Impares");
+			System.out.println("4) Serie Pares");
+			System.out.print("Opcion: ");
+			String opt = sc.next();
+			System.out.print("Introducir N: ");
+			int n = sc.nextInt();
+			switch (opt) {
+			case "1":
+				naturales(n);
+				break;
+			case "2":
+				fibo(n);
+				break;
+			case "3":
+				impar(n);
+				break;
+			case "4":
+				par(n);
+				break;
+			default:
+				System.out.println("Opcion no valida");
+				break;
+			}
+			System.out.println("Desea continuar? s/n");
+			c = sc.next();
+		}while(c.equals("s"));
+	}
+
+	private static void par(int n) {
+		for (int i = 0; i < n; i++) {
+			System.out.print((i*2)+", ");
+		}
+		System.out.println();
+	}
+
+	private static void impar(int n) {
+		for (int i = 0; i < n; i++) {
+			System.out.print((i*2+1)+", ");
+		}
+		System.out.println();
+	}
+
+	private static void fibo(int n) {
+		int a = 0, b = 1;
+		for (int i = 0; i < n; i++) {
+			System.out.print(a+", ");
+			int f = a + b;
+			a = b;
+			b = f;
+		}
+		System.out.println();
+	}
+
+	private static void naturales(int n) {
+		for (int i = 0; i < n; i++) {
+			System.out.print(i+", ");
+		}
+		System.out.println();
+	}
+
+}
